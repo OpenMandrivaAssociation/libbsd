@@ -10,7 +10,7 @@ URL:		http://libbsd.freedesktop.org/
 Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.gz
 
 License:	BSD and ISC and Copyright only and Public Domain
-Group:		System Environment/Libraries
+Group:		System/Libraries
 
 %description
 libbsd provides useful functions commonly found on BSD systems, and
@@ -20,7 +20,7 @@ code over and over again on each project.
 
 %package -n %devel
 Summary:	Development files for libbsd
-Group:		Development/Libraries
+Group:		Development/C
 Requires:	%name = %{version}-%{release}
 Requires:	pkgconfig
 Provides:	libbsd-devel = %{version}-%{release}
