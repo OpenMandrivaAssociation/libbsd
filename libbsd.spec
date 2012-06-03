@@ -2,7 +2,7 @@
 %define devel	%mklibname -d bsd
 
 Name:		%name
-Version:	0.4.0
+Version:	0.4.1
 Release:	1
 Summary:	Library providing BSD-compatible functions for portability
 URL:		http://libbsd.freedesktop.org/
@@ -37,8 +37,6 @@ Development files for the libbsd library.
 
 %install
 %makeinstall_std
-mv %{buildroot}/*.so* %{buildroot}/%{_libdir}/
-
 
 %files
 %doc COPYING README TODO ChangeLog
