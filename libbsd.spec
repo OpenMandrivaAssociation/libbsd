@@ -49,3 +49,19 @@ Development files for the libbsd library.
 %{_libdir}/libbsd.so
 %{_libdir}/pkgconfig/libbsd.pc
 %{_libdir}/pkgconfig/libbsd-overlay.pc
+
+
+%changelog
+* Mon Jun 04 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.4.1-1
++ Revision: 802188
+- version update 0.4.1
+
+* Fri Jun 01 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.4.0-1
++ Revision: 801667
+- version update 0.4.0
+
+* Thu Nov 03 2011 Andrey Smirnov <asmirnov@mandriva.org> 0.3.0-1mdv2012.0
++ Revision: 715653
+- Package groups fixed
+- imported package libbsd
+
