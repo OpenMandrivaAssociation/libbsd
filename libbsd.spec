@@ -1,5 +1,7 @@
-%define name	%mklibname bsd
-%define devel	%mklibname -d bsd
+%define debug_package %nil
+%define	major	0
+%define name	%mklibname bsd %{major}
+%define devel	%mklibname -d bsd %{major}
 
 Name:		%name
 Version:	0.4.1
