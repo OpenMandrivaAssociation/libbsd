@@ -1,18 +1,16 @@
 %define debug_package %nil
 %define	major	0
-%define name	%mklibname bsd %{major}
-%define devel	%mklibname -d bsd %{major}
+%define libname	%mklibname bsd %{major}
+%define devname	%mklibname -d bsd
 
-Name:		%name
-Version:	0.4.1
-Release:	1
 Summary:	Library providing BSD-compatible functions for portability
-URL:		http://libbsd.freedesktop.org/
-
-Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.gz
-
+Name:		libbsd
+Version:	0.4.1
+Release:	2
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
+Url:		http://libbsd.freedesktop.org/
+Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.gz
 
 %description
 libbsd provides useful functions commonly found on BSD systems, and
@@ -20,18 +18,28 @@ lacking on others like GNU systems, thus making it easier to port
 projects with strong BSD origins, without needing to embed the same
 code over and over again on each project.
 
-%package -n %devel
+%package -n %{libname}
+Summary:	Library providing BSD-compatible functions for portability
+Group:		System/Libraries
+
+%description -n %{libname}
+libbsd provides useful functions commonly found on BSD systems, and
+lacking on others like GNU systems, thus making it easier to port
+projects with strong BSD origins, without needing to embed the same
+code over and over again on each project.
+
+%package -n %{devname}
 Summary:	Development files for libbsd
 Group:		Development/C
-Requires:	%name = %{version}-%{release}
-Requires:	pkgconfig
-Provides:	libbsd-devel = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{_lib}bsd0-devel < 0.4.1-2
 
-%description -n %devel
+%description -n %{devname}
 Development files for the libbsd library.
 
 %prep
-%setup -q -n libbsd-%version
+%setup -q
 
 %build
 %configure2_5x --disable-static
@@ -40,30 +48,15 @@ Development files for the libbsd library.
 %install
 %makeinstall_std
 
-%files
-%doc COPYING README TODO ChangeLog
-%{_libdir}/libbsd.so.*
+%files -n %{libname}
+%{_libdir}/libbsd.so.{major}*
 
-%files -n %devel
-%{_mandir}/man3/*.3.?z
-%{_mandir}/man3/*.3bsd.?z
+%files -n %{devname}
+%doc COPYING README TODO ChangeLog
+%{_mandir}/man3/*.3*
+%{_mandir}/man3/*.3bsd*
 %{_includedir}/bsd
 %{_libdir}/libbsd.so
 %{_libdir}/pkgconfig/libbsd.pc
 %{_libdir}/pkgconfig/libbsd-overlay.pc
-
-
-%changelog
-* Mon Jun 04 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.4.1-1
-+ Revision: 802188
-- version update 0.4.1
-
-* Fri Jun 01 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.4.0-1
-+ Revision: 801667
-- version update 0.4.0
-
-* Thu Nov 03 2011 Andrey Smirnov <asmirnov@mandriva.org> 0.3.0-1mdv2012.0
-+ Revision: 715653
-- Package groups fixed
-- imported package libbsd
 
