@@ -49,12 +49,11 @@ Development files for the libbsd library.
 %makeinstall_std
 
 %files -n %{libname}
-%{_libdir}/libbsd.so.{major}*
+%{_libdir}/libbsd.so.%{major}*
 
 %files -n %{devname}
 %doc COPYING README TODO ChangeLog
-%{_mandir}/man3/*.3*
-%{_mandir}/man3/*.3bsd*
+%{_mandir}/man3/*
 %{_includedir}/bsd
 %{_libdir}/libbsd.so
 %{_libdir}/pkgconfig/libbsd.pc
