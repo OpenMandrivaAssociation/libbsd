@@ -5,12 +5,12 @@
 
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
-Version:	0.4.1
-Release:	2
+Version:	0.5.1
+Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
-Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.gz
+Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.xz
 
 %description
 libbsd provides useful functions commonly found on BSD systems, and

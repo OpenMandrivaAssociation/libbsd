@@ -1,2 +1,4 @@
+removed_sources:
+  libbsd-0.4.1.tar.gz: 5d8e3ee4219eec7ca1b73b9a9803c4252887d807
 sources:
-  "libbsd-0.4.1.tar.gz": 5d8e3ee4219eec7ca1b73b9a9803c4252887d807
+  libbsd-0.5.1.tar.xz: fad98626e6e73488449630f7bbb60c41af12e4a7
