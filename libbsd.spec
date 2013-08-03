@@ -5,7 +5,7 @@
 
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
-Version:	0.5.1
+Version:	0.6.0
 Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
@@ -57,5 +57,6 @@ Development files for the libbsd library.
 %{_includedir}/bsd
 %{_libdir}/libbsd.so
 %{_libdir}/pkgconfig/libbsd.pc
+%{_libdir}/pkgconfig/%{name}-ctor.pc
 %{_libdir}/pkgconfig/libbsd-overlay.pc
-
+%{_libdir}/libbsd-ctor.a
