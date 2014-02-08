@@ -6,7 +6,7 @@
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
 Version:	0.6.0
-Release:	1
+Release:	2
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
