@@ -1,12 +1,12 @@
 %define debug_package %nil
-%define	major	0
-%define libname	%mklibname bsd %{major}
-%define devname	%mklibname -d bsd
+%define	major 0
+%define libname %mklibname bsd %{major}
+%define devname %mklibname -d bsd
 
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
-Version:	0.6.0
-Release:	8
+Version:	0.7.0
+Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
@@ -42,7 +42,7 @@ Development files for the libbsd library.
 %setup -q
 
 %build
-%configure2_5x --disable-static
+%configure --disable-static
 %make
 
 %install
