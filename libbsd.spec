@@ -11,6 +11,7 @@ License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
 Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.xz
+BuildRequires:	pkgconfig(openssl)
 
 %description
 libbsd provides useful functions commonly found on BSD systems, and
