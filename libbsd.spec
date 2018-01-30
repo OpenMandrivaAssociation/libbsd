@@ -6,7 +6,7 @@
 
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
-Version:	0.8.6
+Version:	0.8.7
 Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
