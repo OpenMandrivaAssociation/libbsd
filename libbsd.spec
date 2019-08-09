@@ -57,7 +57,5 @@ Development files for the libbsd library.
 %{_mandir}/man7/*
 %{_includedir}/bsd
 %{_libdir}/libbsd.so
-%{_libdir}/pkgconfig/libbsd.pc
-%{_libdir}/pkgconfig/%{name}-ctor.pc
-%{_libdir}/pkgconfig/libbsd-overlay.pc
+%{_libdir}/pkgconfig/*.pc
 %{_libdir}/libbsd-ctor.a
