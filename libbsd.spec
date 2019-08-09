@@ -1,4 +1,3 @@
-%define _disable_lto 1
 %define debug_package %nil
 %define major 0
 %define libname %mklibname bsd %{major}
@@ -6,13 +5,12 @@
 
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
-Version:	0.9.1
-Release:	2
+Version:	0.10.0
+Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
 Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.xz
-BuildRequires:	pkgconfig(openssl)
 
 %description
 libbsd provides useful functions commonly found on BSD systems, and
@@ -41,14 +39,14 @@ Obsoletes:	%{_lib}bsd0-devel < 0.4.1-2
 Development files for the libbsd library.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure --disable-static
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libbsd.so.%{major}*
