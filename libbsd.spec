@@ -58,4 +58,3 @@ Development files for the libbsd library.
 %{_includedir}/bsd
 %{_libdir}/libbsd.so
 %{_libdir}/pkgconfig/*.pc
-%{_libdir}/libbsd-ctor.a
