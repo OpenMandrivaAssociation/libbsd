@@ -17,8 +17,8 @@
 
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
-Version:	0.10.0
-Release:	2
+Version:	0.11.1
+Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
@@ -74,7 +74,7 @@ Development files for the libbsd library.
 %prep
 %autosetup -p1
 
-export CONFIGURE_TOP=`pwd`
+export CONFIGURE_TOP=$(pwd)
 %if %{with compat32}
 mkdir build32
 cd build32
