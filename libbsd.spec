@@ -1,7 +1,6 @@
 # libbsd is required by libICE, which in turn is used by
 # wine -- hence the need for a 32bit package
 
-%define debug_package %nil
 %define major 0
 %define libname %mklibname bsd %{major}
 %define devname %mklibname -d bsd
@@ -23,6 +22,10 @@ License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
 Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.xz
+BuildRequires:	pkgconfig(libmd)
+%if %{with compat32}
+BuildRequires:	devel(libmd)
+%endif
 
 %description
 libbsd provides useful functions commonly found on BSD systems, and
@@ -104,8 +107,8 @@ rm -f %{buildroot}%{_prefix}/lib/*.a
 
 %files -n %{devname}
 %doc COPYING README TODO ChangeLog
-%{_mandir}/man3/*
-%{_mandir}/man7/*
+%doc %{_mandir}/man3/*
+%doc %{_mandir}/man7/*
 %{_includedir}/bsd
 %{_libdir}/libbsd.so
 %{_libdir}/pkgconfig/*.pc
