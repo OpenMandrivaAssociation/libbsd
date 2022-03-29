@@ -111,6 +111,7 @@ rm -f %{buildroot}%{_prefix}/lib/*.a
 %doc %{_mandir}/man7/*
 %{_includedir}/bsd
 %{_libdir}/libbsd.so
+%{_libdir}/*.a
 %{_libdir}/pkgconfig/*.pc
 
 %if %{with compat32}
