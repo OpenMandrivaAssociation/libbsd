@@ -17,7 +17,7 @@
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
 Version:	0.11.6
-Release:	1
+Release:	2
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
 Url:		http://libbsd.freedesktop.org/
@@ -71,6 +71,7 @@ Group:		Development/C
 Requires:	%{devname} = %{EVRD}
 Requires:	%{lib32name} = %{EVRD}
 Requires:	devel(libmd)
+Provides:	devel(libbsd) = %{version}-%{release}
 
 %description -n %{dev32name}
 Development files for the libbsd library.
