@@ -16,7 +16,7 @@
 
 Summary:	Library providing BSD-compatible functions for portability
 Name:		libbsd
-Version:	0.11.8
+Version:	0.12.2
 Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
@@ -26,6 +26,7 @@ BuildRequires:	pkgconfig(libmd)
 %if %{with compat32}
 BuildRequires:	devel(libmd)
 %endif
+BuildSystem:	autotools
 
 %description
 libbsd provides useful functions commonly found on BSD systems, and
@@ -77,64 +78,6 @@ Provides:	devel(libbsd) = %{version}-%{release}
 Development files for the libbsd library.
 %endif
 
-%prep
-%autosetup -p1
-
-export CONFIGURE_TOP=$(pwd)
-%if %{with compat32}
-mkdir build32
-cd build32
-%configure32
-cd ..
-%endif
-
-mkdir build
-cd build
-%configure
-
-%build
-%if %{with compat32}
-%make_build -C build32
-%endif
-%make_build -C build
-
-%install
-%if %{with compat32}
-%make_install -C build32
-rm -f %{buildroot}%{_prefix}/lib/*.a
-%endif
-%make_install -C build
-
-# (tpg) strip LTO from "LLVM IR bitcode" files
-check_convert_bitcode() {
-    printf '%s\n' "Checking for LLVM IR bitcode"
-    llvm_file_name=$(realpath ${1})
-    llvm_file_type=$(file ${llvm_file_name})
-
-    if printf '%s\n' "${llvm_file_type}" | grep -q "LLVM IR bitcode"; then
-# recompile without LTO
-    clang %{optflags} -fno-lto -Wno-unused-command-line-argument -x ir ${llvm_file_name} -c -o ${llvm_file_name}
-    elif printf '%s\n' "${llvm_file_type}" | grep -q "current ar archive"; then
-    printf '%s\n' "Unpacking ar archive ${llvm_file_name} to check for LLVM bitcode components."
-# create archive stage for objects
-    archive_stage=$(mktemp -d)
-    archive=${llvm_file_name}
-    cd ${archive_stage}
-    ar x ${archive}
-    for archived_file in $(find -not -type d); do
-        check_convert_bitcode ${archived_file}
-        printf '%s\n' "Repacking ${archived_file} into ${archive}."
-        ar r ${archive} ${archived_file}
-    done
-    ranlib ${archive}
-    cd ..
-    fi
-}
-
-for i in $(find %{buildroot} -type f -name "*.[ao]"); do
-    check_convert_bitcode ${i}
-done
-
 %files -n %{libname}
 %{_libdir}/libbsd.so.%{major}*
 
@@ -153,5 +96,6 @@ done
 
 %files -n %{dev32name}
 %{_prefix}/lib/libbsd.so
+%{_prefix}/lib/*.a
 %{_prefix}/lib/pkgconfig/*.pc
 %endif
