@@ -20,7 +20,7 @@ Version:	0.12.2
 Release:	1
 License:	BSD and ISC and Copyright only and Public Domain
 Group:		System/Libraries
-Url:		http://libbsd.freedesktop.org/
+Url:		https://libbsd.freedesktop.org/
 Source0:	http://libbsd.freedesktop.org/releases/libbsd-%{version}.tar.xz
 BuildRequires:	pkgconfig(libmd)
 %if %{with compat32}
